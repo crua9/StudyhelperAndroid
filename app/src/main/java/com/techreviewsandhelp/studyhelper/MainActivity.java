@@ -1,11 +1,13 @@
 package com.techreviewsandhelp.studyhelper;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView lv;
     private ArrayList <String> strArr;
-    private Context c;
+    public Context c;
     private ArrayAdapter<String> adapter;
     private FloatingActionButton fab;
     private LinearLayout editqa;
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(c, android.R.layout.simple_list_item_1, strArr);
         lv.setAdapter(adapter);
 
+        //app is crashing because the following
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -114,18 +117,32 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.settings:
+                settings();
+                break;
+            /**
+             Going to add TTS later
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+             case R.id.tts:
+             tts();
+             break;
+             case R.id.shuffle_tts:
+             shuffle();
+             break;
+
+             */
         }
+        return true;
+    }
 
-        return super.onOptionsItemSelected(item);
+    private void settings(){
+        Intent intent = new Intent(MainActivity.this, Settings.class);
+        startActivity(intent);
     }
 }
