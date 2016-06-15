@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList <String> strArr;
     private Context c;
     private ArrayAdapter<String> adapter;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         //ID
         lv = (ListView)findViewById(R.id.listView);
+        fab = (FloatingActionButton)findViewById(R.id.fab);
+
+        //making the list dynamic
         strArr = new ArrayList<String>();
         for (int i = 0; i < 2; i++){
             strArr.add("Row:"+i);
