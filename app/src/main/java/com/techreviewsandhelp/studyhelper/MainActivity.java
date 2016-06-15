@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private Context c;
     private ArrayAdapter<String> adapter;
     private FloatingActionButton fab;
+    private LinearLayout editqa;
+    private TextView question, answer;
+    private EditText edquestion, edanswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
         //ID
         lv = (ListView)findViewById(R.id.listView);
         fab = (FloatingActionButton)findViewById(R.id.fab);
+        editqa = (LinearLayout)findViewById(R.id.editqa);
+        question = (TextView)findViewById(R.id.question);
+        answer = (TextView)findViewById(R.id.answer);
+        edquestion = (EditText)findViewById(R.id.etquestion);
+        edanswer = (EditText)findViewById(R.id.etanswer);
 
         //making the list dynamic
         strArr = new ArrayList<String>();
