@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         edquestion = (EditText)findViewById(R.id.etquestion);
         edanswer = (EditText)findViewById(R.id.etanswer);
 
+        //making sure the qa layout is gone
+
+        editqa.setVisibility(View.GONE);
+        lv.setVisibility(View.VISIBLE);
+
         //making the list dynamic
         strArr = new ArrayList<String>();
         for (int i = 0; i < 2; i++){
