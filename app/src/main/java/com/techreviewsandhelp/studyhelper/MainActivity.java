@@ -59,6 +59,37 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(c, android.R.layout.simple_list_item_1, strArr);
         lv.setAdapter(adapter);
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editqa.setVisibility(View.VISIBLE);
+                lv.setVisibility(View.GONE);
+                fab.setVisibility(View.GONE);
+                question.setVisibility(View.GONE);
+                answer.setVisibility(View.GONE);
+                edquestion.setVisibility(View.VISIBLE);
+                edanswer.setVisibility(View.VISIBLE);
+                submit.setVisibility(View.VISIBLE);
+
+
+                /**
+                 * This is just out here as a test. It needs to save both the Q and A
+                 * Clicking the list should hide the edit text, buttons, and show the right Q&A.
+                 * Need to add an ability to delete or edit an item.
+                 */
+                submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        strArr.add(edquestion.getText().toString());
+                        adapter.notifyDataSetChanged();
+                        editqa.setVisibility(View.GONE);
+                        lv.setVisibility(View.VISIBLE);
+                        fab.setVisibility(View.VISIBLE);
+                    }
+                });
+            }
+        });
+
 
 
 
