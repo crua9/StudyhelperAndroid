@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout editqa;
     private TextView question, answer;
     private EditText edquestion, edanswer;
+    private Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         answer = (TextView)findViewById(R.id.answer);
         edquestion = (EditText)findViewById(R.id.etquestion);
         edanswer = (EditText)findViewById(R.id.etanswer);
+        submit = (Button)findViewById(R.id.submit);
 
         //making sure the qa layout is gone
 
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         }
         adapter = new ArrayAdapter<String>(c, android.R.layout.simple_list_item_1, strArr);
         lv.setAdapter(adapter);
+
+
 
 
 
